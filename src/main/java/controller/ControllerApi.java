@@ -38,12 +38,12 @@ public class ControllerApi {
 //        System.out.println(model.toString());
         HttpHeaders headers = new HttpHeaders();
         clientRepository.save((new Client(1, 1, date.toString(), request.getRequestURL().toString(), request.getRemoteAddr().toString())));
-        Iterable<Client> customers = clientRepository.findAll();
-        System.out.println("Customers found with findAll():");
-        System.out.println("-------------------------------");
-        for (Client customer : customers) {
-            System.out.println(customer);
-        }
+//        Iterable<Client> customers = clientRepository.findAll();
+//        System.out.println("Customers found with findAll():");
+//        System.out.println("-------------------------------");
+//        for (Client customer : customers) {
+//            System.out.println(customer);
+//        }
 //        System.out.println();
 //        System.out.println(clientRepository.findAll());
 //        System.out.println("this");
