@@ -10,14 +10,16 @@ public class Client {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
-    private long time;
-    private int ip;
+    private long user;
+    private String time;
+    private String ip;
     private String url;
 
-    public Client(){}
+    protected Client(){}
 
-    public Client(int id, long time, int ip, String url) {
+    public Client(int id, int user, String time, String ip, String url) {
         this.id = id;
+        this.user = user;
         this.time = time;
         this.ip = ip;
         this.url = url;
@@ -31,19 +33,27 @@ public class Client {
         this.id = id;
     }
 
-    public long getTime() {
+    public long getUser() {
+        return user;
+    }
+
+    public void setUser(long user) {
+        this.user = user;
+    }
+
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
-    public int getIp() {
+    public String getIp() {
         return ip;
     }
 
-    public void setIp(int ip) {
+    public void setIp(String ip) {
         this.ip = ip;
     }
 
@@ -53,5 +63,12 @@ public class Client {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Client[id=%d, user=%d, time=%d, ip='%s', url='%s']",
+                id, user, time, ip, url);
     }
 }
