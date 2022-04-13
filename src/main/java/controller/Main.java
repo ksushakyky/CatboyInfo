@@ -8,10 +8,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -26,6 +28,9 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 //@EnableJpaRepositories(basePackageClasses = ClientRepository.class)
 @SpringBootApplication()
 @EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
+@ComponentScan({"com.delivery.request"})
+@EntityScan("com.delivery.domain")
+@EnableJpaRepositories("com.delivery.repository")
 public class Main {
 
     public static void main(String[] args) {

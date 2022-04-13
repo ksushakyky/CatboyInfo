@@ -2,7 +2,7 @@ package controller;
 
 import bot.Bot;
 import model.Client;
-//import model.ClientRepository;
+import model.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.ui.Model;
@@ -21,8 +21,8 @@ public class ControllerApi {
     @Autowired
     RestTemplate restTemplate;
 
-//    @Autowired
-//    private ClientRepository clientRepository;
+    @Autowired
+    private ClientRepository clientRepository;
 
     private Bot bot = new Bot();
 
@@ -49,7 +49,6 @@ public class ControllerApi {
 //            model.addAttribute("orderId", orderId);
 //        System.out.println(model.toString());
         HttpHeaders headers = new HttpHeaders();
-//        clientRepository.save((new Client(1, 1, date.toString(), request.getRequestURL().toString(), request.getRemoteAddr().toString())));
 //        Iterable<Client> customers = clientRepository.findAll();
 //        System.out.println("Customers found with findAll():");
 //        System.out.println("-------------------------------");
@@ -65,6 +64,7 @@ public class ControllerApi {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> entity = new HttpEntity<>(headers);
         ResponseEntity<String> responseJson = restTemplate.exchange("https://api.catboys.com/ping", HttpMethod.GET, entity, String.class);
+        clientRepository.save((new Client(1, 1, date.toString(), request.getRequestURL().toString(), request.getRemoteAddr().toString())));
         bot.sendMsg(responseJson);
         return responseJson;
     }
