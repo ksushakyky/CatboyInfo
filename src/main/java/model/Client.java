@@ -1,6 +1,6 @@
 package model;
 
-import com.sun.istack.NotNull;
+//import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 

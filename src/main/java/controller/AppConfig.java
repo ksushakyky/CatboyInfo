@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Configuration
-//@EnableAutoConfiguration
+@EnableAutoConfiguration
 
 public class AppConfig {
 
@@ -78,12 +78,12 @@ public class AppConfig {
 //        return new DataSourceProperties();
 //    }
 
-//    @Bean
-//    @ConfigurationProperties("app.datasource")
-//    public HikariDataSource dataSource(DataSourceProperties properties) {
-//        return properties.initializeDataSourceBuilder().type(HikariDataSource.class)
-//                .build();
-//    }
+    @Bean
+    @ConfigurationProperties("spring.datasource")
+    public HikariDataSource dataSource(DataSourceProperties properties) {
+        return properties.initializeDataSourceBuilder().type(HikariDataSource.class)
+                .build();
+    }
 
 
 
