@@ -1,18 +1,24 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.sun.istack.NotNull;
+
+import javax.persistence.*;
 
 @Entity
+@Table(name = "data")
 public class Client {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
+
+//    @NotNull
+    @Column(name = "user")
     private long user;
+    @Column(name = "time")
     private String time;
+    @Column(name = "ip")
     private String ip;
+    @Column(name = "url")
     private String url;
 
     protected Client(){}

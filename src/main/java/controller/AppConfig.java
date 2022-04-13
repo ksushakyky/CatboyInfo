@@ -40,28 +40,28 @@ public class AppConfig {
         return new PropertySourcesPlaceholderConfigurer();
     }
 
-    @Bean
-    public DataSource dataSource() throws URISyntaxException {
-        URI dbUri = new URI(System.getenv("DATABASE_URL"));
-
-        String username = dbUri.getUserInfo().split(":")[0];
-        String password = dbUri.getUserInfo().split(":")[1];
-        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
-
-
-        System.out.println(username);
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(dbUrl);
-        config.setUsername(username);
-        config.setPassword(password);
-        return new HikariDataSource(config);
-//        DataSource dataSource = new DataSource();
-//        dataSource.setJdbcUrl(dbUrl);
-//        dataSource.setUsername(username);
-//        dataSource.setPassword(password);
-
-//        returndDataSource;
-    }
+//    @Bean
+//    public DataSource dataSource() throws URISyntaxException {
+//        URI dbUri = new URI(System.getenv("JDBC_DATABASE_URL"));
+//
+//        String username = dbUri.getUserInfo().split(":")[0];
+//        String password = dbUri.getUserInfo().split(":")[1];
+//        String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath();
+//
+//
+//        System.out.println(username);
+//        HikariConfig config = new HikariConfig();
+//        config.setJdbcUrl(dbUrl);
+//        config.setUsername(username);
+//        config.setPassword(password);
+//        return new HikariDataSource(config);
+////        DataSource dataSource = new DataSource();
+////        dataSource.setJdbcUrl(dbUrl);
+////        dataSource.setUsername(username);
+////        dataSource.setPassword(password);
+//
+////        returndDataSource;
+//    }
 
 //    @Value("${spring.datasource.url}")
 //    private String dbUrl;
