@@ -15,7 +15,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="CatboyInfo" options="-parameters" />
+      <module name="CatboyInfo" options="" />
     </option>
   </component>
 </project>

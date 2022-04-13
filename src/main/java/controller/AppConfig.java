@@ -4,6 +4,7 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import model.Client;
 //import model.ClientRepository;
+import model.ClientRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
@@ -74,16 +75,23 @@ public class AppConfig {
 
 //    @Bean
 //    @ConfigurationProperties("app.datasource")
-//    public DataSourceProperties dataSourceProperties() {
-//        return new DataSourceProperties();
+//    public ClientRepository clientRepository() {
+//        return new ClientRepository();
 //    }
 
-    @Bean
-    @ConfigurationProperties("spring.datasource")
-    public HikariDataSource dataSource(DataSourceProperties properties) {
-        return properties.initializeDataSourceBuilder().type(HikariDataSource.class)
-                .build();
-    }
+//    @Bean
+//    @ConfigurationProperties("spring.datasource")
+//    public HikariDataSource dataSource(DataSourceProperties properties) {
+//        return properties.initializeDataSourceBuilder().type(HikariDataSource.class)
+//                .build();
+//    }
+//
+//    @Bean(name="entityManagerFactory")
+//    public LocalSessionFactoryBean sessionFactory() {
+//        LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
+//
+//        return sessionFactory;
+//    }
 
 
 

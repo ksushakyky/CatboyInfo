@@ -2,7 +2,7 @@ package controller;
 
 //import model.Data;
 import bot.Bot;
-//import model.ClientRepository;
+import model.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -27,10 +27,10 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 //@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class })
 //@EnableJpaRepositories(basePackageClasses = ClientRepository.class)
 @SpringBootApplication()
-@EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
-@ComponentScan({"com.delivery.request"})
-@EntityScan("com.delivery.domain")
-@EnableJpaRepositories("com.delivery.repository")
+//@EnableAutoConfiguration(exclude = HibernateJpaAutoConfiguration.class)
+//@ComponentScan({"com.delivery.request"})
+//@EntityScan("com.delivery.domain")
+//@EnableJpaRepositories("com.delivery.repository")
 public class Main {
 
     public static void main(String[] args) {

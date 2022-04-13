@@ -9,7 +9,6 @@ import java.util.List;
 @Repository
 public interface ClientRepository extends CrudRepository<Client, Long> {
 }
-
+//@Repository
 //public interface ClientRepository extends JpaRepository<Client, Long> {
-//    List<Client> findAllUser();
 //}
