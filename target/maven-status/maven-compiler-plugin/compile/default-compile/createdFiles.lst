@@ -2,5 +2,5 @@ controller/ControllerApi.class
 controller/Main.class
 bot/Bot.class
 model/ClientRepository.class
-controller/DatabaseConfig.class
+controller/AppConfig.class
 model/Client.class

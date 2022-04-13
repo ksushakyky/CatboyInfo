@@ -19,8 +19,8 @@ public class ControllerApi {
     @Autowired
     RestTemplate restTemplate;
 
-    @Autowired
-    private ClientRepository clientRepository;
+//    @Autowired
+//    private ClientRepository clientRepository;
 
     private Bot bot = new Bot();
 
@@ -37,7 +37,7 @@ public class ControllerApi {
 //            model.addAttribute("orderId", orderId);
 //        System.out.println(model.toString());
         HttpHeaders headers = new HttpHeaders();
-        clientRepository.save((new Client(1, 1, date.toString(), request.getRequestURL().toString(), request.getRemoteAddr().toString())));
+//        clientRepository.save((new Client(1, 1, date.toString(), request.getRequestURL().toString(), request.getRemoteAddr().toString())));
 //        Iterable<Client> customers = clientRepository.findAll();
 //        System.out.println("Customers found with findAll():");
 //        System.out.println("-------------------------------");
