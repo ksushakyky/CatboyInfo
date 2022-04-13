@@ -1,6 +1,6 @@
-controller/ControllerApi.class
-controller/Main.class
+main/ClientRepository.class
 bot/Bot.class
-model/ClientRepository.class
-controller/AppConfig.class
-model/Client.class
+main/AppController.class
+main/Client.class
+main/AppConfig.class
+main/Main.class
