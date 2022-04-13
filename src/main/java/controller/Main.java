@@ -2,7 +2,7 @@ package controller;
 
 //import model.Data;
 import bot.Bot;
-import model.ClientRepository;
+//import model.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;

@@ -3,7 +3,7 @@ package controller;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import model.Client;
-import model.ClientRepository;
+//import model.ClientRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
@@ -53,12 +53,12 @@ public class AppConfig {
 //        return new DataSourceProperties();
 //    }
 
-    @Bean
-    @ConfigurationProperties("app.datasource")
-    public HikariDataSource dataSource(DataSourceProperties properties) {
-        return properties.initializeDataSourceBuilder().type(HikariDataSource.class)
-                .build();
-    }
+//    @Bean
+//    @ConfigurationProperties("app.datasource")
+//    public HikariDataSource dataSource(DataSourceProperties properties) {
+//        return properties.initializeDataSourceBuilder().type(HikariDataSource.class)
+//                .build();
+//    }
 
 
 

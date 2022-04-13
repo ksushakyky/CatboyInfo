@@ -2,7 +2,7 @@ package controller;
 
 import bot.Bot;
 import model.Client;
-import model.ClientRepository;
+//import model.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.ui.Model;
@@ -11,8 +11,10 @@ import org.springframework.web.client.RestTemplate;
 //import org.springframework.web.reactive.function.client.WebClient;
 //import reactor.core.publisher.Mono;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 @RestController
 public class ControllerApi {
@@ -28,6 +30,16 @@ public class ControllerApi {
     public ResponseEntity<String> getDetailsPing(Model model, HttpServletRequest request){
 
         Date date = new Date();
+//        List<Client> list
+//
+//            Iterable<Client> bookIterable =  ClientRepository.findAll();
+//            ArrayList<Client> books = new ArrayList<>();
+//            for(Client book : bookIterable) {
+//                books.add(book);
+//            }
+//        model.addAttribute("books", books);
+//        model.addAttribute("booksCount", books.size());
+//        model.addAttribute("someParameter", someParameter);
 //        String getURL = request.getRequestURL().toString();
 //        String getIp = request.getRemoteAddr().toString();
 //
@@ -53,7 +65,7 @@ public class ControllerApi {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> entity = new HttpEntity<>(headers);
         ResponseEntity<String> responseJson = restTemplate.exchange("https://api.catboys.com/ping", HttpMethod.GET, entity, String.class);
-//        bot.sendMsg(responseJson);
+        bot.sendMsg(responseJson);
         return responseJson;
     }
 

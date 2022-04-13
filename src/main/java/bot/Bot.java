@@ -7,7 +7,14 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 @Component
 public class Bot extends TelegramLongPollingBot {
@@ -34,40 +41,38 @@ public class Bot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
 
         long chat_id = 0;
-//        String id = null;
-//        if(update.getMessage() != null && update.getMessage().getText() == "/start" && update.getMessage().hasText()){
-//            chat_id = update.getMessage().getChatId();
-//            id = Long.toString(chat_id);
-//            idList.add(id);
-//        }
         if (update.getMessage() != null && update.getMessage().hasText()) {
             chat_id = update.getMessage().getChatId();
             id = Long.toString(chat_id);
-            System.out.println(id);
-//            String str = update.getMessage().getText();
-//            if(str.equals("/start"))
-//            {
-//                idList.add(id);
-//                idList.forEach((i) -> System.out.println(i));
-////                System.out.println(str);
-//            }
+            String str = update.getMessage().getText();
+            if(str.equals("/start"))
+            {
+                try {
+                    Files.write(Paths.get("src/main/java/bot/Users"), Collections.singleton(id));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                try {
+                    execute(new SendMessage(id, "Hello, my name is InfoCatboy! I redirect requests from https://catboys.com"));
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-
+    }
+    public void sendMsg(ResponseEntity<String> response){
+        List<String> users = null;
         try {
-            execute(new SendMessage(id, "Hello!" ));
+            users = Files.readAllLines(Paths.get("src/main/java/bot/Users"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            for (String i:users) {
+                execute(new SendMessage(i, response.getBody()));
+            }
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
     }
-    public void sendMsg(ResponseEntity<String> response){
-//        if(id != null){
-            try {
-//            execute(new SendMessage(idList.get(0), response.toString()));
-                execute(new SendMessage("730360558", response.getBody()));
-            } catch (TelegramApiException e) {
-                e.printStackTrace();
-            }
-//        }
-    }
-
 }

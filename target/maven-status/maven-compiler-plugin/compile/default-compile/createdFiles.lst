@@ -1,6 +1,5 @@
 controller/ControllerApi.class
-controller/Main.class
-bot/Bot.class
-model/ClientRepository.class
 controller/AppConfig.class
+controller/Main.class
 model/Client.class
+bot/Bot.class
