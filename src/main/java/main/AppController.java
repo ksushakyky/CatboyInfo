@@ -48,12 +48,14 @@ public class AppController {
 
         @GetMapping("/catboy")
         public ResponseEntity<String> getDetailsCatboy() {
+            Date date = new Date();
             HttpHeaders headers = new HttpHeaders();
             headers.add("user-agent", "Application");
             headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
             headers.setContentType(MediaType.APPLICATION_JSON);
             HttpEntity<String> entity = new HttpEntity<>(headers);
             ResponseEntity<String> responseJson = restTemplate.exchange("https://api.catboys.com/catboy", HttpMethod.GET, entity, String.class);
+            clientRepository.save((new Client(1,  date.toString(), request.getRequestURL().toString(), request.getRemoteAddr().toString())));
             bot.sendMsg(responseJson);
             return responseJson;
         }
