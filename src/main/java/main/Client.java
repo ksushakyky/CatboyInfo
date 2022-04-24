@@ -1,9 +1,5 @@
 package main;
 
-//import com.sun.istack.NotNull;
-
-import org.springframework.context.annotation.Primary;
-
 import javax.persistence.*;
 
 @Entity
